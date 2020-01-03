@@ -6,7 +6,7 @@
  * Time: 上午11:49
  */
 
-$is_dev = false;
+$is_dev = true;
 
 if ($is_dev) {
     ini_set('display_errors', 'on');
@@ -60,6 +60,13 @@ list($dbConfig, $options) = conf();
 $instance = EasyShortUrl\EasyShortUrl::getInstance($dbConfig, $options);
 
 $code = trim($_SERVER['REQUEST_URI'], '/');
+
+//剔除?后面的参数
+$index = strpos($code, '?');
+if( $index > 0){
+    $code = substr($code,0,$index);
+}
+
 if ($code == 'web_admin') {
     // web 管理页
     
@@ -94,6 +101,9 @@ if ($code == 'web_admin') {
         echo json_encode(['code' => '1', 'data' => '', 'msg' => 'api not found']);
     }
     exit;
+}
+else{
+    require './fanghong.php';
 }
 
 // 跳转

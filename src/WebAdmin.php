@@ -277,11 +277,11 @@
                         <a href="javascript:;" class="reversion"> <span>网址还原</span></a>
                     </li>
                 </ul>
-                <ul class="tab_other">
+                <!-- <ul class="tab_other">
                     <li>
                         <a href="https://github.com/chenlongqiang/easy-short-url" target="_blank"><span>GitHub</span></a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
             <div class="tab_body">
                 <div class="url_short">

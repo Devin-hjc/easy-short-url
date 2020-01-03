@@ -82,7 +82,14 @@ $longUrl = \EasyShortUrl\EasyShortUrl::getInstance($dbConfig, $options)->toLong(
 ```
 1) apache or nginx 配置 root 目录至 vendor/chenlongqiang/easy-short-url/
 2) 配置 rewrite 重写至index.php，不清楚的自行baidu、google或联系我
-```
+```Nginx重写index.php
+    location / {
+            if (!-e $request_filename){
+                rewrite ^/(.*)$ /index.php/$1 last;
+            }
+            index  index.html index.htm index.php;
+            #autoindex  on;
+        }
 
 2.web页（.env DOMAIN 改成自己的域名）
 ```
